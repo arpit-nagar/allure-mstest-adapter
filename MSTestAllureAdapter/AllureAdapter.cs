@@ -61,7 +61,7 @@ namespace MSTestAllureAdapter
                         
                     if (suitName == EMPTY_SUITE_CATEGORY_NAME)
                     {
-                        suitName = null;
+                        suitName = "TestSuite";
                     }
 
                     TestSuitStarted(suitUid, suitName, start);
@@ -107,11 +107,23 @@ namespace MSTestAllureAdapter
 
             foreach (MSTestResult testResult in testResults)
             {
-                IEnumerable<string> suits = testResult.Suites;
+                List<string> suits = testResult.Suites.ToList();
+
+                if (!testResult.Suites.Any())
+                {
+                    var suite = testResult.Name.Split('.');
+                    if (suite.Length >= 2)
+                    {
+                        var suiteValue = suite[suite.Length - 2];
+                        if (!suits.Contains(suiteValue))
+                            suits.Add(suiteValue);
+                    }
+                }
+
 
                 if (!suits.Any())
                 {
-                    suits = new string[]{ EMPTY_SUITE_CATEGORY_NAME };
+                    suits = new List<string> { EMPTY_SUITE_CATEGORY_NAME };
                 }
 
                 foreach (string suit in suits)

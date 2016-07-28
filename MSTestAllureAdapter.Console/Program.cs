@@ -70,7 +70,7 @@ namespace MSTestAllureAdapter.Console
 
             trxPath = args[0];
 
-            outputPath = args.Length > 2 ? args[1] : DEFAULT_RESULT_DIR;
+            outputPath = args.Length >= 2 ? args[1] : DEFAULT_RESULT_DIR;
 
             if (!Directory.Exists(outputPath))
             {
