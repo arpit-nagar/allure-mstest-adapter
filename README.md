@@ -1,7 +1,7 @@
 MSTestAllureAdapter
 ===================
 
-[![Build Status](https://travis-ci.org/allure-framework/allure-mstest-adapter.svg?branch=master)](https://travis-ci.org/allure-framework/allure-mstest-adapter)
+[![Build Status](https://travis-ci.org/arpit-nagar/allure-mstest-adapter.svg?branch=master)](https://github.com/arpit-nagar/allure-mstest-adapter)
 
 **MSTestAllureAdapter** allows you convert an MSTest trx file to the XMLs from which an Allure report can be generated.
 
